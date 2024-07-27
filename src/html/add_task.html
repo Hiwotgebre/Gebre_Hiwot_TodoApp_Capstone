@@ -10,5 +10,29 @@
     <header>
         <h1>Add/Edit Task</h1>
     </header>
+    <main>
+        <form action="#" method="post">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" required>
+
+            <label for="description">Description:</label>
+            <textarea name="description" id="descriptiom" required></textarea>
+
+            <label for="due_date">Due Date:</label>
+            <input type="date" id="due_date" name="due_date" required>
+
+            <label for="subject">Subject:</label>
+            <select name="subject" id="subject">
+                <option value="math">Math</option>
+                <option value="science">Science</option>
+                <option value="language-art">Language Art</option>
+                <option value="reading">Reading</option>
+                <option value="spanish">Spanish</option>
+                <option value="social-study">Social Study</option>
+                <!-- Additional subjects -->
+            </select>
+            <button type="submit">Save Task</button>
+        </form>
+    </main>
 </body>
 </html>
