@@ -22,3 +22,17 @@ nav ul li {
     list-style: none;
     padding: 0;
 }
+
+.task {
+    background-color: #e0e0e0;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f4f4f4;
+}
