@@ -1,6 +1,5 @@
-/* styles.css */
 body {
-    font-family:Arial, Helvetica, sans-serif ;
+    font-family: Arial, sans-serif;
 }
 
 header {
@@ -37,10 +36,11 @@ footer {
     width: 100%;
     background-color: #f4f4f4;
     text-align: center;
+    padding: 10px 0;
 }
 
 button {
-    background-color: #4caf50;
+    background-color: #4CAF50;
     color: white;
     border: none;
     padding: 10px 20px;
