@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List Display</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/todo-list-display.css">
+</head>
+<body>
+    <header>
+        <h1>Todo List Display</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="task-display.html">My Tasks</a></li>
+                <li> <a href="todo-list-display.html">Todo List</a> </li>
+                <li><a href="login.html">Login</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <ul id="todos-list" class="todos-list"></ul>
+        <button class="load-button" onclick="fetchAllTodos()">Load Todos</button>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+</html>
