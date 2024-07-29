@@ -1,0 +1,42 @@
+.container {
+    max-width: 800px;
+    margin: auto;  /* Centers the container on the page */
+    background: white;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.load-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.load-button:hover {
+    background-color: #0056b3;
+}
+
+.todos-list {
+    list-style: none;
+    padding: 0;
+}
+
+.todos-list li {
+    background-color: #ffffff;
+    padding: 10px;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 16px;
+}
+
+.todos-list li:last-child {
+    border-bottom: none;
+}
+
+.todos-list li.completed {
+    color: #888;
+    text-decoration: line-through;
+}
