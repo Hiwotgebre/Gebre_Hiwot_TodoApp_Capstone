@@ -1,36 +1,45 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
     <header>
-        <h1>My Task</h1>
+        <h1>Homework Todo App</h1>
         <nav>
             <ul>
-                <li><a href="calendar.html">Calendar</a> </li>
-                <li> <a href="settings.html">Settings</a> </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="task-display.html">My Tasks</a></li>
+                <li><a href="login.html">Login</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <ul class="task-list">
-            <li class="task">
-                <span class="title">Math Homework</span>
-                <span class="due-date">Due: 2024-08-01</span>
-                <a href="task.html">Details</a>
-            </li>
-            <!-- Additional tasks here -->
+
+    <section class="task-input">
+        <input type="text" id="new-task" placeholder="Add new homework..." required>
+        <textarea id="task-desc" placeholder="Description"></textarea>
+        <input type="date" id="task-date" required>
+        <select id="task-status">
+            <option value="pending">Pending</option>
+            <option value="in-progress">In Progress</option>
+            <option value="completed">Completed</option>
+        </select>
+        <select id="task-priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <button onclick="addTask()",  onclick="window.location.href='task-display.html';">Add Task</button>
+    </section>
+
+    <!-- <section class="task-list">
+        <ul id="tasks">
+            Tasks will be added here
         </ul>
-    </main>
-    <footer>
-        <button onclick="window.location.href='add_task.html';">Add Task</button>
-    </footer>
+    </section> -->
     <script src="../js/main.js"></script>
 </body>
 </html>
-
