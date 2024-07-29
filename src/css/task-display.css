@@ -1,0 +1,57 @@
+.edit-btn, .delete-btn, #add-button {
+    padding: 8px 16px;
+    margin-top: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+
+.edit-btn, #add-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    opacity: 0.8;
+}
+
+.edit-task-form {
+    margin: 20px 0;
+}
+
+.edit-task-form input {
+    padding: 10px;
+    width: 70%;
+    margin-right: 5px;
+}
+
+.edit-task-form textarea, .edit-task-form select, .edit-task-form input[type=date] {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.edit-task-form textarea {
+    height: 50px;
+}
+
+.logout-button {
+    background-color: #C84B31;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 10%;
+    transition: background-color 0.3s;
+
+}
