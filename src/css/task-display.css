@@ -1,4 +1,4 @@
-.edit-btn, .delete-btn, #add-button {
+.edit-btn, .delete-btn, #add-button, .load-todos-btn{
     padding: 8px 16px;
     margin-top: 5px;
     font-size: 14px;
@@ -8,7 +8,7 @@
     outline: none;
 }
 
-.edit-btn, #add-button {
+.edit-btn, #add-button, .load-todos-btn {
     background-color: #4caf50;
     color: white;
 }
