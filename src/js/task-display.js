@@ -2,6 +2,7 @@ window.onload = function() {
     displayTasks();
 };
 
+//Read Tasks
 function displayTasks() {
     const tasksList = document.getElementById('tasks');
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -20,7 +21,7 @@ function displayTasks() {
     });
 }
 
-
+// Delete Tasks
 function deleteTask(index) {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks.splice(index, 1); // Remove the task
@@ -28,6 +29,8 @@ function deleteTask(index) {
     displayTasks(); // Refresh the list
 }
 
+
+//Update Tasks
 let currentEditingIndex = null; // Global variable to track which task is being edited
 function editTask(index) {
     currentEditingIndex = index; // Set the current index being edited
