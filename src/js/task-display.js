@@ -3,7 +3,8 @@ window.onload = function() {
 };
 
 function fetchTasks() {
-    fetch('https://dummyjson.com/todos/${todoId}')
+    fetch('http://localhost:3000/tasks')
+    //fetch('https://dummyjson.com/todos/${todoId}')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -52,7 +53,8 @@ function displayTasks() {
 
 // Delete Tasks
 function deleteTask(index) {
-    fetch(`https://dummyjson.com/todos/${taskId}`, {
+    fetch(`http://localhost:3000/tasks/`, {
+    // fetch(`https://dummyjson.com/todos/${taskId}`, {
         method: 'DELETE'
     })
     .then(response => {
@@ -75,23 +77,6 @@ function deleteTask(index) {
 //Update Tasks
 let currentEditingIndex = null; // Global variable to track which task is being edited
 function editTask(index) {
-    fetch(`https://dummyjson.com/todos/${taskId}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedTask)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Error updating task');
-        }
-        console.log('Task updated successfully');
-        fetchTasks(); // Refresh the list to show the updated task
-    })
-    .catch(error => {
-        console.error('There was an error:', error);
-    });
     currentEditingIndex = index; // Set the current index being edited
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const task = tasks[index];
@@ -122,6 +107,30 @@ function saveChanges(index) {
         priority: document.getElementById('edit-priority').value
     };
 
+      // Send the updated task to the server
+      fetch(`http://localhost:3000/tasks/${tasks[index].id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(task)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error updating task');
+        }
+        return response.json();
+    })
+    .then(() => {
+        console.log('Task updated successfully');
+        tasks[index] = task; // Update the task locally
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        displayTasks(); // Refresh the list
+    })
+    .catch(error => {
+        console.error('There was an error:', error);
+    });
+
     tasks[index] = task; // Update the task
     localStorage.setItem('tasks', JSON.stringify(tasks)); // Update local storage
     displayTasks(); // Refresh the list
@@ -139,4 +148,6 @@ function logout() {
     sessionStorage.removeItem('isLoggedIn');
     window.location.href = 'login.html'
 }
+
+
 

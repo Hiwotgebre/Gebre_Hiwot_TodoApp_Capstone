@@ -24,9 +24,9 @@ function addTask() {
         };
 
         //Store the task in local storage
-        // const tasks = JSON.parse(localStorage.getItem('tasks')) || []; i will un comment it later
-        // tasks.push(task);i will un comment it later
-        // localStorage.setItem('tasks', JSON.stringify(tasks));i will un comment it later
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || []; 
+        tasks.push(task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
 
         // const li = document.createElement('li');
         // li.innerHTML = `<strong>Task:</strong> ${newTask} <br>
@@ -35,22 +35,23 @@ function addTask() {
         //                 <strong>Status:</strong> ${status} <br>
         //                 <strong>Priority:</strong> ${priority}`;
         // document.getElementById('tasks').appendChild(li);
-        // taskInput.value = '';i will un comment it later
-        // descInput.value = '';i will un comment it later
-        // dateInput.value = '';i will un comment it later
-        // statusInput.selectedIndex = 0;i will un comment it later
-        // priorityInput.selectedIndex = 0;i will un comment it later
+        taskInput.value = '';
+        descInput.value = ''; 
+        dateInput.value = '';
+        statusInput.selectedIndex = 0;
+        priorityInput.selectedIndex = 0;
 
         //Redirect to task-display.html
-        //     window.location.href = 'task-display.html';i will un comment it later
-        // } else {i will un comment it later
-        //     alert('Please enter a task');i will un comment it later
-        // }i will un comment it later
+            window.location.href = 'task-display.html';
+        //  } else { 
+        //      alert('Please enter a task');
+        //  }
         //};
 
 
         //Send POST request to server
-        fetch('https://dummyjson.com/todos/add', {
+        fetch('http://localhost:3000/tasks', {
+        //fetch('https://dummyjson.com/todos/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -61,13 +62,12 @@ function addTask() {
             if (!response.ok) {
                 throw new Error('Error creating task');
             }
-            //return response.json();  //or 
-            return fetchTasks(); //to refresh the list
+            return response.json();  //or return fetchTasks(); //to refresh the list
         })
         .then(() => {
             console.log('Task added successfully');
             window.location.href = 'task-display.html'; // Redirect to display tasks
-            //fetchTasks(); // Refresh the tasks list i will un comment it later
+            fetchTasks(); // Refresh the tasks list i will un comment it later
         })
         .catch(error => {
             console.error('There was an error:', error);
@@ -78,6 +78,7 @@ function addTask() {
     }
 }
 
+// This is for display todo-list that fetch from dummyjson.com api for todo-list-display page
 function fetchAllTodos() {
     fetch('https://dummyjson.com/todos')
         .then(response => {
