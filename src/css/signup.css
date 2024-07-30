@@ -1,0 +1,30 @@
+/* #signupForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#signupForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#signup input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signup-button {
+    background-color: #007Bff;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 10%;
+
+} */

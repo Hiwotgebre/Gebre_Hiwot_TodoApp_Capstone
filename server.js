@@ -1,49 +1,45 @@
+//Server.js
 const express = require('express');
 const mongoose= require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const app = express();
 const dotenv = require('dotenv').config();
-const PORT = 3000;
-const Task = require('./src/models/task');
+const Task = require('./src/models/task.js');
+const connectDB = require('./config/conn.js');
 
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+//Connect to MongoDB
+connectDB(); //This will establish the MongoDB connection
+
+//Middleware setup
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json()); // Middleware to parse JSON bodies
 
-// Connect to MongoDB
-mongoose.connect('mongodb+srv://hiwotkebede26:Rohisaze21182415!@todo-app.y1bcnog.mongodb.net/', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
 
-let tasks = []; // This will hold the tasks
+// let tasks = []; // This will hold the tasks
 
 // CRUD operations
-//GET all tasks
-app.get('/tasks', async(req, res) => {
+// POST a new task
+app.post('/tasks', async(req, res) => {
     try {
-        const newTask = new Task({
-            title: req.body.title,
-            description: req.body.description,
-            dueDate: req.body.dueDate,
-            status: req.body.status,
-            priority: req.body.priority
-        });
-
+        const newTask = new Task(req.body);
         await newTask.save();
-        res.status(201).send('Task added successfully');
+        res.status(201).json(newTask);
     } catch (error) {
-        res.status(400).send('Error saving task');
+        res.status(400).json({ message: error.message });
     }
 });
 
-// POST a new task
-app.post('/tasks', async(req, res) => {
-    const task = new Task(req.body);
+//GET all tasks
+app.get('/tasks', async(req, res) => {
     try {
-        const newTask = await task.save();
+        const tasks = await Task.find({});
+        res.status(200).json(tasks);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 });
 
@@ -57,7 +53,7 @@ app.put('/tasks/:id', async(req, res) => {
     res.json(updatedTask);
     
     } catch (error) {
-      res.status(404).json({ message: error.message });
+      res.status(500).json({ message: error.message });
     }
 });
 
@@ -73,6 +69,7 @@ app.delete('/tasks/:id', async(req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
