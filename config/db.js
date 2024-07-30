@@ -1,10 +1,10 @@
-const mongoose = require('./config/db');
+const mongoose = require('mongoose');
+require('dotenv').config(); // Ensure this is at the top to load environment variables
 
-// Environment variable for URI
-const mongoURI = process.env.MONGO_URI || "mongodb+srv://hiwotkebede26:Rohisaze21182415!@todo-app.y1bcnog.mongodb.net/?retryWrites=true&w=majority&appName=Todo-App";
+const mongoURI = process.env.MONGO_URI;
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected successfully'))
-  .catch(err => console.log(err));
+  .catch(err => console.error('Database connection error:', err));
 
 module.exports = mongoose;
