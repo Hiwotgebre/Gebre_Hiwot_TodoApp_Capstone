@@ -33,7 +33,7 @@ This is a Todo App designed to help middle school students manage their homework
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/todo-app.git
+   git clone https://github.com/Hiwotgebre/Gebre_Hiwot_TodoApp_Capstone
    cd todo-app
 2. Install the dependencies:
     npm install
@@ -91,10 +91,10 @@ This is a Todo App designed to help middle school students manage their homework
 ## ScreenShots
 
 1. Home/Add task Page
-    ![Home/Add task Page](screenshots\Home-Add-Task.PNG)
+    ![Home/Add task Page](./screenshots/Home-Add-Task.PNG)
 
 2. Login Page
-    ![Login Page](screenshots\Login-Page.PNG)
+    ![Login Page](./screenshots/Login-Page.PNG)
 
 3. Task List Page
-    ![Task List Page](screenshots\Task-List.PNG)
+    ![Task List Page](./screenshots/Task-List.PNG)
