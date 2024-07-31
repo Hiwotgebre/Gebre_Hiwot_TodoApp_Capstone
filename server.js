@@ -8,7 +8,7 @@ const Task = require('./src/models/task.js');
 const connectDB = require('./config/conn.js');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 //Connect to MongoDB
 connectDB(); //This will establish the MongoDB connection
